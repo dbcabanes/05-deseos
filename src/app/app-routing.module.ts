@@ -6,8 +6,12 @@ const routes: Routes = [
     path: "",
     loadChildren: () =>
       // Hemos creado la carpeta PAGES y metido dentro los tabs, por lo tanto tenemos que cambiarle la ruta desde aqui
-      import("./pages/tabs/tabs.module").then(m => m.TabsPageModule)
-  }
+      import("./Pages/tabs/tabs.module").then(m => m.TabsPageModule)
+  } /*,
+  {
+    path: "agregar",
+    loadChildren: "./Pages/agregar/agregar.module#AgregarPageModule"
+  }*/
 ];
 @NgModule({
   imports: [
