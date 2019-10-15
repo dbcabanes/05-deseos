@@ -9,9 +9,26 @@ export class DeseosService {
 
   constructor() {
     //console.log("Servicio inicializado");
-    const lista1 = new Lista("Recolectar piedras");
-    const lista2 = new Lista("Héroes a desaparecer");
-    this.listas.push(lista1, lista2);
+    this.cargarStorage();
+    //const lista1 = new Lista("Recolectar piedras");
+    //const lista2 = new Lista("Héroes a desaparecer");
+    //this.listas.push(lista1, lista2);
     console.log(this.listas);
+  }
+
+  crearLista(titulo: string) {
+    const nuevaLista = new Lista(titulo);
+    this.listas.push(nuevaLista);
+    this.guardarStorage();
+  }
+  guardarStorage() {
+    localStorage.setItem("data", JSON.stringify(this.listas));
+  }
+  cargarStorage() {
+    if (localStorage.getItem("data")) {
+      this.listas = JSON.parse(localStorage.getItem("data"));
+    } else {
+      this.listas = [];
+    }
   }
 }
