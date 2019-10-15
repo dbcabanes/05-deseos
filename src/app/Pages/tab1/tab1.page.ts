@@ -41,7 +41,8 @@ export class Tab1Page {
             if (data.titulo.length === 0) {
               return;
             }
-            this.DeseosService.crearLista(data.titulo);
+            const listaId = this.DeseosService.crearLista(data.titulo);
+            this.router.navigateByUrl(`/tabs/tab1/agregar/${listaId}`);
           }
         }
       ]
