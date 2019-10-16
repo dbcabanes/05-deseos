@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AgregarPage } from "../agregar/agregar.page";
 import { AlertController } from "@ionic/angular";
 import { ok } from "assert";
+import { Lista } from "src/app/models/lista.model";
 
 @Component({
   selector: "app-tab1",
@@ -48,5 +49,10 @@ export class Tab1Page {
       ]
     });
     alert.present();
+  }
+  listaSeleccionada(lista: Lista) {
+    this.router.navigateByUrl(`/tabs/tab1/agregar/${lista.id}`);
+
+    console.log(lista);
   }
 }
